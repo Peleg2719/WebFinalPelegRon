@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.61d768ca.css",
+    "main.js": "/static/js/main.412f24e0.js",
+    "static/media/WorkerBackGround.mp4": "/static/media/WorkerBackGround.0a6ec8483514c6948b26.mp4",
+    "static/media/miniuinim.mp4": "/static/media/miniuinim.6f2229306355c7f72df3.mp4",
+    "static/media/taskBackGround.mp4": "/static/media/taskBackGround.3de2d07ac4cb70952318.mp4",
+    "index.html": "/index.html",
+    "main.61d768ca.css.map": "/static/css/main.61d768ca.css.map",
+    "main.412f24e0.js.map": "/static/js/main.412f24e0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.61d768ca.css",
+    "static/js/main.412f24e0.js"
+  ]
+}
