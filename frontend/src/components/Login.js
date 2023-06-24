@@ -55,7 +55,7 @@ const Login = () => {
         navigate('/home', { state: data });
       }
     }
-  }, [user, navigate]);
+  }, [user, navigate,email]);
   
 
   return (
@@ -64,7 +64,7 @@ const Login = () => {
         <source src={process.env.PUBLIC_URL + videoURL} type="video/mp4" />
       </video>
       {isPending && <div>Loading...</div>}
-      {!isPending && (!error||error=="Could not fetch the data for that resource!") && !user && (
+      {!isPending && (!error||error==="Could not fetch the data for that resource!") && !user && (
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="loginDeatils">
           <h2>Login</h2>

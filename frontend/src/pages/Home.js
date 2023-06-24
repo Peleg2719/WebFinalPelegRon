@@ -99,11 +99,11 @@ const Home = () => {
   return (
     <div className="home">
       <video autoPlay loop muted className="background-video">
-        <source src={process.env.PUBLIC_URL + videoURL} type="video/mp4" />
+        <source src={`${process.env.PUBLIC_URL}${videoURL}`} type="video/mp4" />
       </video>
       <div className="tasks">
         <div className="task-header">
-          <h1>{name()+"'s"+ " "+'Tasks'}</h1>
+          <h1>{`${name()}'s Tasks`}</h1>
           <div className="sort-buttons">
             {isManager && (
               <button

@@ -11,15 +11,13 @@ const TasksDetailes = ({ task, isManager, managerTasks }) => {
     if (task.type === "personal" && isManager && !managerTasks) {
       setIsBuissnessAndManager(false);
     }
-  }, [isManager]);
+  }, [isManager,managerTasks,task.type]);
 
   const handleMark = () => {
     setIsMarked(!isMarked);
   };
 
-  const handleClickSelect = () => {
-    setIsDeleted(!isDeleted);
-  };
+
 
   const handleClick = async () => {
     const response = await fetch("/api/tasks/" + task._id, { method: "DELETE" });

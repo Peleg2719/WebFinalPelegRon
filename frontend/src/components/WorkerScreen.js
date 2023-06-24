@@ -13,7 +13,7 @@ const WorkerScreen = () => {
     if(data.emailManager){
       setEmailM(data.emailManager)
     }
-  }, []);
+  }, [data.emailManager]);
 
   const getUsers = async () => {
     try {
