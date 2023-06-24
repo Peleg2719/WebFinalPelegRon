@@ -4,7 +4,7 @@ import { useTasksContext } from "../hooks/useTasksContext";
 const TasksDetailes = ({ task, isManager, managerTasks }) => {
   const { dispatch } = useTasksContext();
   const [isMarked, setIsMarked] = useState(false);
-  const [isDeleted, setIsDeleted] = useState(false);
+  const [isDeleted] = useState(false);
   const [isBuissnessAndManager, setIsBuissnessAndManager] = useState(true);
 
   useEffect(() => {

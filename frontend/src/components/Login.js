@@ -82,7 +82,7 @@ const Login = () => {
           />
           <button id="login" type="submit">Login</button>
           </div>
-          {error=="Could not fetch the data for that resource!" && <div className="error-label">{"Wrong email or Password please try again!"}</div>}
+          {error==="Could not fetch the data for that resource!" && <div className="error-label">{"Wrong email or Password please try again!"}</div>}
         
         </form>
       )}
