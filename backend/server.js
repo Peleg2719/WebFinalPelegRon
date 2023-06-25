@@ -7,6 +7,68 @@ const app = express();
 
 const taskRoutes = require('./routes/tasks')
 const userRoutes = require('./routes/users')
+//
+
+const path = require("path");
+const { fileURLToPath } = require("url");
+
+const correntfilename = __filename
+const correntdirname = path.dirname(correntfilename);
+
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+  );
+  next();
+});
+
+app.use((req, res, next) => {
+  if (!req.url.endsWith(".js") && !req.url.endsWith(".css")) {
+    res.type("text/html");
+  }
+  next();
+});
+app.use((req, res, next) => {
+  if (req.url.endsWith(".js")) {
+    res.type("text/javascript");
+  }
+  next();
+});
+
+app.use(
+    '/assets',
+    express.static(
+      path.join(__dirname, '..', 'frontend', 'build', 'assets')
+    )
+  );
+  app.use(
+    express.static(path.join(__dirname, '..', 'frontend', 'build'))
+  );
+  
+  app.get('/index-*.js', function (req, res) {
+    res.type('application/javascript');
+    res.sendFile(
+      path.join(
+        __dirname,
+        '..',
+        'frontend',
+        'build',
+        'assets',
+        req.path
+      )
+    );
+  });
+
+
+
+
 //using the routers with the app
 //when we make request to the route then use workoutRoutes
 app.use('/api/tasks',taskRoutes)
@@ -33,3 +95,14 @@ mongoose.connect(process.env.MONGO_URI).then(()=>{
     console.log(err);
 })
 
+app.get('*', (req, res) => {
+    const filePath = path.join(
+      __dirname,
+      '..',
+      'frontend',
+      'build',
+      'index.html'
+    );
+    console.log('File path:', filePath);
+    res.sendFile(filePath);
+  });
